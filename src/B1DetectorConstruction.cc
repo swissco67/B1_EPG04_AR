@@ -8,10 +8,11 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-B1DetectorConstruction::B1DetectorConstruction(const G4GDMLParser& parser)
+B1DetectorConstruction::B1DetectorConstruction(char *argin, const G4GDMLParser& parser)
 : G4VUserDetectorConstruction(),
   fScoringVolume(0),
-   fParser(parser)
+   fParser(parser),
+   arg(argin)
 { }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -23,6 +24,8 @@ B1DetectorConstruction::~B1DetectorConstruction()
 
 G4VPhysicalVolume* B1DetectorConstruction::Construct()
 {  
+  G4cout << "Command line declaration of Sensitive Volume " << arg << G4endl;
+
   const G4GDMLAuxMapType* auxmap = fParser.GetAuxMap();
   G4GDMLAuxMapType::const_iterator sv;
   G4cout << "Found " << auxmap->size()
@@ -40,7 +43,7 @@ G4VPhysicalVolume* B1DetectorConstruction::Construct()
       G4cout << "--> Type: " << (*vit).type
                 << " Value: " << (*vit).value << G4endl;
     }
-    if (((*iter).first)->GetName() == "Tracker") {
+    if (((*iter).first)->GetName() == arg) {
       sv = iter;
       G4cout << "Scoring Volume set to " << ((*sv).first)->GetName() << G4endl;
     }

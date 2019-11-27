@@ -43,7 +43,7 @@ target_link_libraries(b1dose ${Geant4_LIBRARIES})
 # relies on these scripts being in the current working directory.
 #
 set(B1DOSE_SCRIPTS
-  init_vis.mac
+  init_vis.mac physics.mac primary.mac
   run1.mac
   run2.mac
   vis.mac

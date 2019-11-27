@@ -114,4 +114,3 @@
 #
 # For file-based drivers, use this to create an empty detector view:
 #/vis/viewer/flush
-/gun/position 20 20 40

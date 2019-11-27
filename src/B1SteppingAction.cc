@@ -67,11 +67,11 @@ void B1SteppingAction::UserSteppingAction(const G4Step* step)
       
   // check if we are in scoring volume
   if (volume != fScoringVolume) {
-    G4cout << "SteppingAction NotIn scoring volume" << G4endl;  	
+    //G4cout << "SteppingAction NotIn scoring volume" << G4endl;  	
     return;
   }
   else {
-    G4cout << "SteppingAction In scoring volume" << G4endl;  	
+    //G4cout << "SteppingAction In scoring volume" << G4endl;  	
   }
 
   // collect energy deposited in this step

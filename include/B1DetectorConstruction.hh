@@ -12,7 +12,7 @@ class G4GDMLParser;
 class B1DetectorConstruction : public G4VUserDetectorConstruction
 {
   public:
-    B1DetectorConstruction(const G4GDMLParser&);
+    B1DetectorConstruction(char*, const G4GDMLParser&);
     ~B1DetectorConstruction();
 
     G4VPhysicalVolume* Construct();
@@ -24,6 +24,7 @@ class B1DetectorConstruction : public G4VUserDetectorConstruction
     
   private:
     const G4GDMLParser& fParser;
+    char* arg;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
